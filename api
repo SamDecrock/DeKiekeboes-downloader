@@ -1,0 +1,84 @@
+Get all issues XML:
+http://edge.adobe-dcfs.com/ddp/issueServer/issues?accountId=6e2e4d58d4b44bdd92e80415b7a58473
+
+
+Get comic XML:
+http://edge.adobe-dcfs.com/ddp/issueServer/issues/6406fb7f-79f3-4488-961b-4b05e1ba82f3/catalog/1
+
+
+Get comic page:
+http://edge.adobe-dcfs.com/ddp/issueServer/issues/3a23d24d-0c5e-4fab-b6a1-8538817e369a/articles/72f6b90d-ccad-4f3e-8795-e132bfb72cad/1
+
+
+
+
+
+
+
+RAW Wiresharked data:
+
+
+GET /ddp/issueServer/issues/3a23d24d-0c5e-4fab-b6a1-8538817e369a/articles/72f6b90d-ccad-4f3e-8795-e132bfb72cad/1?sessionId=D3999F83-C352-42FC-AA55-20B7B638D608&clientVersion=2.3.1.1.41850 HTTP/1.1
+Host: edge.adobe-dcfs.com
+User-Agent: De%20Kiekeboes/2.3.1.1.41850 CFNetwork/548.1.4 Darwin/11.0.0
+Accept: */*
+Accept-Language: nl-nl
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Last-Modified: Tue, 12 Jun 2012 09:38:54 GMT
+Content-Type: application/vnd.adobe.article+zip
+Content-Language: nl-NL
+Content-Length: 1349842
+Cache-Control: max-age=0
+Date: Wed, 12 Sep 2012 11:30:45 GMT
+Connection: keep-alive
+
+PK..
+
+
+
+http://edge.adobe-dcfs.com/ddp/issueServer/issues/3a23d24d-0c5e-4fab-b6a1-8538817e369a/articles/72f6b90d-ccad-4f3e-8795-e132bfb72cad/1?sessionId=D3999F83-C352-42FC-AA55-20B7B638D608&clientVersion=2.3.1.1.41850 HTTP/1.1
+
+
+
+http://edge.adobe-dcfs.com/ddp/issueServer/issues/3a23d24d-0c5e-4fab-b6a1-8538817e369a/catalog/2?__gda__=1347450338_c77c2f2c640816d80366bdd876d36661
+
+
+
+GET /ddp/issueServer/issues?sessionId=D3999F83-C352-42FC-AA55-20B7B638D608&clientVersion=2.3.1.1.41850&accountId=6e2e4d58d4b44bdd92e80415b7a58473&targetDimension=1024x768,1024x748 HTTP/1.1
+Host: edge.adobe-dcfs.com
+User-Agent: De%20Kiekeboes/2.3.1.1.41850 CFNetwork/548.1.4 Darwin/11.0.0
+Accept: */*
+Accept-Language: nl-nl
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Last-Modified: Tue, 04 Sep 2012 11:59:11 GMT
+Content-Type: text/xml;charset=UTF-8
+Content-Language: nl-NL
+Content-Length: 29180
+Cache-Control: max-age=0
+Date: Wed, 12 Sep 2012 11:47:38 GMT
+Connection: keep-alive
+
+
+ edge.adobe-dcfs.com/ddp/issueServer/issues?sessionId=D3999F83-C352-42FC-AA55-20B7B638D608&clientVersion=2.3.1.1.41850&accountId=6e2e4d58d4b44bdd92e80415b7a58473&targetDimension=1024x768,1024x748 HTTP/1.1
+
+
+
+http://edge.adobe-dcfs.com/ddp/issueServer/issues/b9296cd7-2189-4ae2-a89e-f12500778c25/libraryPreview
+
+
+
+
+
+
+
+edge.adobe-dcfs.com/ddp/issueServer/issues/3a23d24d-0c5e-4fab-b6a1-8538817e369a/articles/b9296cd7-2189-4ae2-a89e-f12500778c25/1?sessionId=D3999F83-C352-42FC-AA55-20B7B638D608&clientVersion=2.3.1.1.41850 HTTP/1.1
+
+
