@@ -1,0 +1,16 @@
+{
+  "name": "DeKiekeboes-downloader",
+  "description": "Use this to download the comics of the De Kiekeboes iPad app: http://itunes.apple.com/be/app/de-kiekeboes/id509444845",
+  "version": "0.1.0",
+  "dependencies": {
+    "xml2js": "",
+    "http-get": "",
+    "step": ""
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/mit-license.php"
+    }
+  ]
+}
