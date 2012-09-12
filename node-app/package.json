@@ -5,7 +5,11 @@
   "dependencies": {
     "xml2js": "",
     "http-get": "",
-    "step": ""
+    "step": "",
+    "underscore": "",
+    "adm-zip": "",
+    "rimraf":"",
+    "async": ""
   },
   "licenses": [
     {
