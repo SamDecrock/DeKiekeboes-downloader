@@ -12,6 +12,7 @@ logs
 results
 
 node_modules
+comics
 npm-debug.log
 
 .DS_Store

@@ -12,16 +12,20 @@ var async        = require('async');
 
 showMainMenu();
 
-/*
-getComicPages("b9296cd7-2189-4ae2-a89e-f12500778c25", function (err, res){
-	console.log(res);
-});
 
+var urls = {
+	allComics: function () {
+		return 'http://edge.adobe-dcfs.com/ddp/issueServer/issues?accountId=6e2e4d58d4b44bdd92e80415b7a58473';
+	},
 
-downloadComicPage( __dirname + '/comics' , "b9296cd7-2189-4ae2-a89e-f12500778c25", "e66dd276-c7e9-422a-8a06-0f70b61da473", "test.jpg", function (err, res){
-	console.log(res);
-});
-*/
+	comicPages: function(comicid) {
+		return 'http://edge.adobe-dcfs.com/ddp/issueServer/issues/'+comicid+'/catalog/1';
+	},
+
+	page: function(comicid, comicpageid) {
+		return 'http://edge.adobe-dcfs.com/ddp/issueServer/issues/'+comicid+'/articles/'+comicpageid+'/1';
+	}
+}
 
 
 function ask(callback) {
@@ -95,6 +99,8 @@ function showDownloadComicMenu () {
 		},
 
 		function (err, res) {
+			if(err) throw err;
+
 			comicid = res;
 
 			console.log("");
@@ -103,13 +109,23 @@ function showDownloadComicMenu () {
 			ask(this);
 		},
 
-		function (err, res) {
-			foldername =  __dirname + '/' + res;
+		function (err, res){
+			if(err) throw err;
+
+			foldername = __dirname + '/comics/' + res;
+
+			fs.mkdir( __dirname + '/comics', this);
+		},
+
+		function (err) {
+			//als dir al bestaat: dont care
 
 			fs.mkdir(foldername, this);
 		},
 
 		function (err) {
+			//als dir al bestaat: dont care
+
 			console.log("Downloading into: " + foldername);
 			downloadComic(foldername, comicid, this);
 		},
@@ -128,7 +144,7 @@ function getComics (callback){
 
 	Step(
 		function () {
-			http.get({url: 'http://edge.adobe-dcfs.com/ddp/issueServer/issues?accountId=6e2e4d58d4b44bdd92e80415b7a58473'}, this);
+			http.get({url: urls.allComics()}, this);
 		},
 
 		function (err, res) {
@@ -205,7 +221,7 @@ function getComicPages (comicid, callback) {
 
 	Step(
 		function () {
-			http.get({url: 'http://edge.adobe-dcfs.com/ddp/issueServer/issues/'+comicid+'/catalog/1'}, this);
+			http.get({url: urls.comicPages(comicid)}, this);
 		},
 
 		function (err, res) {
@@ -251,7 +267,7 @@ function downloadComicPage (destination, comicid, comicpageid, filename, callbac
 
 	Step(
 		function () {
-			http.get({url: 'http://edge.adobe-dcfs.com/ddp/issueServer/issues/'+comicid+'/articles/'+comicpageid+'/1'}, tempzip, this);
+			http.get({url: urls.page(comicid, comicpageid)}, tempzip, this);
 		},
 
 		function (err, res) {
