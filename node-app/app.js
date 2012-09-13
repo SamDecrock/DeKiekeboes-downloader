@@ -178,7 +178,7 @@ function downloadComic (downloadfolder, comicid, callback) {
 			console.log("Downloading pages:");
 
 
-			async.forEachSeries(pages, function (page, forEachCallback){
+			async.forEach(pages, function (page, forEachCallback){
 				var filename = page.number;
 
 				downloadComicPage(downloadfolder, comicid, page.id, filename, function (err, pagefile){
@@ -243,13 +243,11 @@ function getComicPages (comicid, callback) {
 
 
 function downloadComicPage (destination, comicid, comicpageid, filename, callback) {
-	var tempzip = destination + '/temp.zip';
+	var tempzip = destination + '/temp' + comicpageid + '.zip';
 	var pagefile = destination + '/' + filename;
-	var tempfolder =  destination + '/temp';
+	var tempfolder =  destination + '/temp' + comicpageid;
 
 	var extension;
-
-	console.log("Downloading " + 'http://edge.adobe-dcfs.com/ddp/issueServer/issues/'+comicid+'/articles/'+comicpageid+'/1');
 
 	Step(
 		function () {
@@ -258,8 +256,6 @@ function downloadComicPage (destination, comicid, comicpageid, filename, callbac
 
 		function (err, res) {
 			if(err) throw err;
-
-			console.log('Got file, extracting...');
 
 			var zipEntryName;
 
@@ -277,15 +273,11 @@ function downloadComicPage (destination, comicid, comicpageid, filename, callbac
 					}
 				}
 
-				console.log("Zip entry name is " + zipEntryName);
-
 				zip.extractEntryTo(zipEntryName, tempfolder, true);
 
 			}catch(exception){
-				console.log(exception);
+				//console.log(exception);
 			}
-
-			console.log('renaming...');
 
 			fs.rename(tempfolder + '/' + zipEntryName, pagefile + extension, this);
 		},
